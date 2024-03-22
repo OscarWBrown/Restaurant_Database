@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Recent Orders</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css">
+        <style>
+            .container {
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            h1 {
+                font-size: 36px;
+                margin-bottom: 30px;
+            }
+            table {
+                width: 100%;
+                margin-bottom: 1rem;
+                background-color: transparent;
+                color: #212529;
+                font-size: 16px;
+                text-align: center;
+            }
+            th {
+                font-weight: 500;
+                padding: 0.75rem;
+                vertical-align: bottom;
+                border-bottom: 2px solid #dee2e6;
+            }
+            td {
+                padding: 0.75rem;
+                vertical-align: top;
+                border-top: 1px solid #dee2e6;
+            }
+            tbody tr:nth-child(even) {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+            tbody tr:hover {
+                background-color: rgba(0, 0, 0, 0.075);
+            }
+            .fa {
+                font-size: 24px;
+            }
+            .navigation {
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .navigation li {
+                margin-right: 20px;
+                position: relative;
+            }
+            .navigation li:last-child {
+                margin-right: 0;
+            }
+            .navigation li a {
+                display: block;
+                background-color: #f8f9fa;
+                color: #212529;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 10px 40px 10px 60px;
+                border-radius: 20px;
+                position: relative;
+                text-decoration: none;
+            }
+            .navigation li a:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+                width: 32px;
+                height: 32px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+            .navigation li:nth-child(1) a:before {
+                background-image: url('pizza.png');
+            }
+            .navigation li:nth-child(2) a:before {
+                background-image: url('burger.png');
+            }
+            .navigation li:nth-child(3) a:before {
+                background-image: url('sandwich.png');
+            }
+            .navigation li:nth-child(4) a:before {
+                background-image: url('taco.png');
+            }
+        </style>
+
+</head>
+<body>
+	<div class="grid-container">
+		<div class="grid-item burger"></div>
+		<div class="grid-item pizza"></div>
+		<div class="grid-item sandwich"></div>
+		<div class="grid-item taco"></div>
+	</div>
+</body>
+</html
+    </head>
+    <body>
+		<div class="container">
+			<h1>Cosentino's</h1>
+			<p>Thank you for visiting Cosentino's restaurants!</p>
+			<ul class="navigation">
+				<li><a href="http://localhost/RestaurantWebsite/orderrecords.html">Order Records</a></li>
+				<li><a href="http://localhost/RestaurantWebsite/signup.html">Sign Up</a></li>
+				<li><a href="http://localhost/RestaurantWebsite/recentorders.php">Recent Orders</a></li>
+				<li><a href="http://localhost/RestaurantWebsite/employeeschedule.php">Employee Schedule</a></li>
+				<li><a href="http://localhost/RestaurantWebsite/30days.php">Last 30 Days</a></li>
+			</ul>
+		</div>
+				<title>Food Square</title>
+					<center>
+	<style>
+
+		.grid-container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			grid-gap: 10px;
+			width: 400px;
+			height: 400px;
+			margin: auto; /* add this line */
+		}
+		.grid-item {
+			background-size: cover;
+			background-position: center;
+		}
+		.burger {
+			background-image: url('http://localhost/RestaurantWebsite/burgerpic.jpg');
+			grid-row: 1 / 2;
+			grid-column: 1 / 2;
+		}
+		.pizza {
+			background-image: url('http://localhost/RestaurantWebsite/pizzapic.jpg');
+			grid-row: 1 / 2;
+			grid-column: 2 / 3;
+		}
+		.sandwich {
+			background-image: url('http://localhost/RestaurantWebsite/sandopic.jpg');
+			grid-row: 2 / 3;
+			grid-column: 1 / 2;
+		}
+		.taco {
+			background-image: url('http://localhost/RestaurantWebsite/tacopic.jpg');
+			grid-row: 2 / 3;
+			grid-column: 2 / 3;
+		}
+
+	</style>
+			</center>
+	</body>
+</html>

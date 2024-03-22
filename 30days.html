@@ -1,0 +1,365 @@
+<?php
+		require_once("C:\\xampp\\htdocs\\RestaurantWebsite\\connectdb.php");
+		
+		$sql = "SELECT DATE(order_date) AS order_date, COUNT(*) AS total_orders
+          FROM orders
+          WHERE order_date >= DATE(NOW()) - INTERVAL 30 DAY
+          GROUP BY DATE(order_date)";
+		  
+		$stmt = $dbh->prepare($sql);
+		$stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$total_orders = array();
+		while ($row = $result) {
+			$total_orders[$row['order_date']] = $row['total_orders'];
+		}
+?>
+
+<!DOCTYPE html>
+<html>
+	<body>
+		<a href="http://localhost/RestaurantWebsite/Restaurant.html">Home</a>
+		<h1>Recent Orders</h1>
+		<p>Order activity over the past 30 days</p>
+		<table>
+			<tr>
+				<th>Days ago</th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+				<th>6</th>
+				<th>7</th>
+				<th>8</th>
+				<th>9</th>
+				<th>10</th>
+			</tr>
+			<tr>
+				<th>Date</th>
+				<th>
+					<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 1);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div> 
+				</th>
+				<th> 
+					<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 2);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> 
+					<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 3);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th>
+					<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 4);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>				
+				</th>
+				<th> 
+					<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 5);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> 
+				<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 6);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> 
+				<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 7);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> 
+				<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 8);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> 
+				<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 9);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> 
+					<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 10);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+			</tr>
+			<tr>
+				<th>Total orders</th>
+				<?php
+				// Display the total number of orders for each date
+				for ($i = 1; $i <= 10; $i++) {
+				    $date = date('Y-m-d', strtotime('-' . $i . ' days'));
+				    echo '<td>' . (isset($total_orders[$date]) ? $total_orders[$date] : '') . '</td>';
+				}
+				?>
+			</tr>
+			<tr>
+				<th>Days ago</th>
+				<th>11</th>
+				<th>12</th>
+				<th>13</th>
+				<th>14</th>
+				<th>15</th>
+				<th>16</th>
+				<th>17</th>
+				<th>18</th>
+				<th>19</th>
+				<th>20</th>
+			</tr>
+			<tr>
+				<th>Date</th>
+				<th> 
+				<div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 11);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 12);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 13);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 14);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 15);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 16);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 17);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 18);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 19);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 20);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+			</tr>
+			<tr>
+				<th>Total orders</th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+			</tr>
+			<tr>
+				<th>Days ago</th>
+				<th>21</th>
+				<th>22</th>
+				<th>23</th>
+				<th>24</th>
+				<th>25</th>
+				<th>26</th>
+				<th>27</th>
+				<th>28</th>
+				<th>29</th>
+				<th>30</th>
+			</tr>
+			<tr>
+				<th>Date</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 21);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 22);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 23);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 24);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 25);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 26);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 27);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 28);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 29);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+				<th> <div>
+					<script>
+						date = new Date();
+						day = date.setDate(date.getDate() - 30);
+						document.write(date.toLocaleDateString());
+					</script>
+					</div>
+				</th>
+			</tr>
+			<tr>
+				<th>Total orders</th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+				<th> </th>
+			</tr>
+	</body>
+</html>
+
+<?php
+	$dbh = null;
+?>
